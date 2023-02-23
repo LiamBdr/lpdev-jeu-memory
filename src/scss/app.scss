@@ -39,7 +39,20 @@ body {
     transition: all 0.3s;
 }
 
+.timer {
+    &.hidden {
+        display: none;
+    }
+
+    &::after {
+        content: 's';
+        font-weight: 300;
+    }
+}
+
 .refresh {
+    display: flex;
+    align-items: center;
     transition: all 0.3s;
     cursor: pointer;
 
@@ -53,10 +66,10 @@ body {
 }
 
 .game-start-btn {
-    width: 150px;
+    width: fit-content;
     border: 1px solid $secondary-color;
     border-radius: 50px;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     transition: all 0.3s;
 }
 

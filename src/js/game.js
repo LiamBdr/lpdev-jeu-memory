@@ -21,10 +21,8 @@ const startBtn = document.querySelector('.game-start-btn');
 const timerContainer = document.querySelector('.timer');
 const secondsContainer = document.querySelector('.seconds');
 
-const classList = ['fa-html5', 'fa-html5', 'fa-css3-alt', 'fa-css3-alt', 'fa-js-square', 'fa-js-square', 'fa-npm', 'fa-npm', 'fa-react', 'fa-react', 'fa-node-js', 'fa-node-js', 'fa-gulp', 'fa-gulp', 'fa-github', 'fa-github'];
-const filteredList = ['fa-html5', 'fa-css3-alt', 'fa-js-square', 'fa-npm', 'fa-react', 'fa-node-js', 'fa-gulp', 'fa-github'];
-const halfStar = "fas fa-star-half-alt";
-const emptyStar = "far fa-star";
+const classList = ['fa-paypal', 'fa-paypal', 'fa-docker', 'fa-docker', 'fa-shopify', 'fa-shopify', 'fa-stripe', 'fa-stripe', 'fa-react', 'fa-react', 'fa-android', 'fa-android', 'fa-google-play', 'fa-google-play', 'fa-airbnb', 'fa-airbnb'];
+const filteredList = ['fa-paypal', 'fa-docker', 'fa-shopify', 'fa-stripe', 'fa-react', 'fa-android', 'fa-google-play', 'fa-airbnb'];
 const fullSar = "fas fa-star stars";
 
 // ------------------------
@@ -56,6 +54,7 @@ function game() {
     // Part 2: set the timer: timer function taken from sltackoverflow: https://stackoverflow.com/a/29972322
     startTime = Date.now();
     setInterval(function () {
+        document.querySelector('.timer').classList.remove('hidden');
         const delta = Date.now() - startTime; // milliseconds elapsed since start
         seconds = (Math.floor(delta / 1000)); // in seconds
         timerContainer.textContent = seconds;
@@ -291,6 +290,7 @@ function updateUI() {
 }
 
 function resetUI() {
+    document.querySelector('.timer').classList.add('hidden');
     movesContainer.textContent = moves;
     starsList.forEach(function(el) {
         el.className = fullSar;

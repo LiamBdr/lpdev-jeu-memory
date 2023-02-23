@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>LPDEV - Jeu memory</title>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css'>
   <link rel="stylesheet" href="./main.css">
 </head>
 <body>
@@ -17,12 +17,15 @@
                 <i class="fas fa-star star-3 stars"></i>
                 <span class="moves-container">
                 <span class="moves-selector">0</span>
-                Moves
+                Coups
                 </span>
             </div>
             <div class="time-container">
-                <div class="timer"></div>
-                <div class="game-start-btn">Star Game</div>
+                <div class="hidden timer"></div>
+                <div class="game-start-btn">
+                    <i class="fas fa-play"></i>
+                    Démarer la partie
+                </div>      
             </div>
             <div class="refresh">
                 <i class="fas fa-redo-alt"></i>
@@ -130,13 +133,11 @@
         </ul>
     </section>
     <div class="win">
-        <h1>Congratulations!</h1>
-        <h3>- You won! -</h3>
-        <p>It took you about <span class="seconds">32</span> Seconds to comeplete the game <br> with <span class="moves">17</span> Moves and <span class="star">1</span> Stars.<br>Woooohoooooo!</p>
-        <button class="replay">Play again!</button>
+        <h1>BRAVO!</h1>
+        <h3>Vous avez gagné en <span class="moves">17</span> coups et en <span class="seconds">32</span> secondes</h3>
+        <button class="replay">REJOUER</button>
     </div>
 
-    <!-- Webpack generated bundles -->
     <script src="main.js"></script>
     <link rel="stylesheet" href="main.css" />
 </body>
