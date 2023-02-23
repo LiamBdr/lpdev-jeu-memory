@@ -27,6 +27,11 @@ body {
         font-weight: 900;
         text-transform: uppercase;
     }
+
+    h2 {
+        font-weight: 300;
+        letter-spacing: 0.1rem;
+    }
 }
 
 .controls {
@@ -35,18 +40,20 @@ body {
     display: flex;
     justify-content: space-between;
     font-size: 1.15rem;
-    font-family: 'helvetica', Arial, sans-serif;
+    font-family: 'Raleway', Arial, sans-serif;
     transition: all 0.3s;
 }
 
+.star-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .timer {
-    &.hidden {
-        display: none;
-    }
 
     &::after {
         content: 's';
-        font-weight: 300;
     }
 }
 
@@ -80,6 +87,10 @@ body {
 }
 
 .hide-start-btn {
+    display: none;
+}
+
+.hidden {
     display: none;
 }
 
@@ -141,9 +152,12 @@ body {
 }
 
 .fab {
-    font-size: 5rem;
+    font-size: 4rem;
     line-height: 1.9;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .card-container.flipped {
@@ -154,15 +168,19 @@ body {
     pointer-events: none;
 }
 
+.wrong {
+    animation: wrong 0.3s ease-in-out;
+}
+
 @keyframes wrong {
     0% {
         transform: rotate(0);
     } 25% {
-         transform: rotate(-15deg);
+         transform: rotate(-5deg);
     } 50% {
          transform: rotate(0);
     } 75% {
-        transform: rotate(15deg);
+        transform: rotate(5deg);
     } 100% {
          transform: rotate(0);
     }
@@ -223,7 +241,7 @@ body {
     width: 150px;
     padding: 1rem;
     border-radius: 50px;
-    background: rgb(126, 149, 230);
+    background: $tertiary-color;
     border: none;
     color: #FAFAFF;
     text-transform: uppercase;

@@ -199,13 +199,6 @@ function equal(itemOne, itemTwo) {
     // 2. TO DO: add animation UI for correct result
     correct(cardOneElement);
     correct(cardTwoElement);
-    // remove class from element
-    setTimeout(function () {
-        removeCorrect(cardOneElement)
-    }, 350);
-    setTimeout(function () {
-        removeCorrect(cardTwoElement)
-    }, 350);
     // 3. disable the element from being clicked
     disableClick(cardOneElement);
     disableClick(cardTwoElement);
@@ -260,6 +253,7 @@ function correct(el) {
 }
 
 function removeCorrect(el) {
+    console.log(el);
     el.classList.remove('correct');
 }
 
