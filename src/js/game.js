@@ -6,24 +6,20 @@ let cardOneElement, cardTwoElement, startTime;
 let seconds = 0;
 let currentTurn = 0;
 let moves = 0;
-let stars = 3;
 let gameWon = false;
 
 const deck = document.querySelector('.deck');
 const winContainer = document.querySelector('.win');
 const btnReplay = document.querySelector('.replay');
 const moveHolder = document.querySelector('.moves');
-const starHolder = document.querySelector('.star');
 const resetButton = document.querySelector('.refresh');
 const movesContainer = document.querySelector('.moves-selector');
-const starsList = document.querySelectorAll('.stars');
 const startBtn = document.querySelector('.game-start-btn');
 const timerContainer = document.querySelector('.timer');
 const secondsContainer = document.querySelector('.seconds');
 
 const classList = ['fa-paypal', 'fa-paypal', 'fa-docker', 'fa-docker', 'fa-shopify', 'fa-shopify', 'fa-stripe', 'fa-stripe', 'fa-react', 'fa-react', 'fa-android', 'fa-android', 'fa-google-play', 'fa-google-play', 'fa-airbnb', 'fa-airbnb'];
 const filteredList = ['fa-paypal', 'fa-docker', 'fa-shopify', 'fa-stripe', 'fa-react', 'fa-android', 'fa-google-play', 'fa-airbnb'];
-const fullSar = "fas fa-star stars";
 
 // ------------------------
 //      The Game
@@ -54,7 +50,7 @@ function game() {
     // Part 2: set the timer: timer function taken from sltackoverflow: https://stackoverflow.com/a/29972322
     startTime = Date.now();
     setInterval(function () {
-        document.querySelector('.timer').classList.remove('hidden');
+        timerContainer.classList.remove('hidden');
         const delta = Date.now() - startTime; // milliseconds elapsed since start
         seconds = (Math.floor(delta / 1000)); // in seconds
         timerContainer.textContent = seconds;
@@ -134,7 +130,6 @@ function resetGame() {
     gameWon = false;
     seconds = 0;
     moves = 0;
-    stars = 3;
 }
 
 // function that handles the card click event
@@ -240,7 +235,6 @@ function notEqual() {
 function winMessage() {
     // updating the UI for the end screen to display the correct values
     moveHolder.textContent = moves;
-    starHolder.textContent = stars;
     secondsContainer.textContent = seconds;
 
     // add the class that will view the wining screen
@@ -290,11 +284,8 @@ function updateUI() {
 }
 
 function resetUI() {
-    document.querySelector('.timer').classList.add('hidden');
+    timerContainer.classList.add('hidden');
     movesContainer.textContent = moves;
-    starsList.forEach(function(el) {
-        el.className = fullSar;
-    });
     timerContainer.textContent = "";
 }
 
