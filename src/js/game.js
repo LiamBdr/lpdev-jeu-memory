@@ -140,7 +140,6 @@ function resetGame() {
 
 // function that handles the card click event
 function cardClickHandler(e) {
-    console.log('card clicked')
     const cardIsNotAlreadyChosen = e.target.parentNode != cardOneElement;
     if (!gameWon && e.target.classList.contains('card-face') && cardIsNotAlreadyChosen) {
         checkStats(e.target.parentNode);
@@ -150,8 +149,6 @@ function cardClickHandler(e) {
 
 // functions to assigning values and check stats
 function checkStats(el) {
-    // console.log('CARD_1', cardOneElement)
-    // console.log('CARD_2', cardTwoElement)
     // assign pointers to elements based on the turn number
     switch (currentTurn) {
         case 0:
@@ -189,7 +186,6 @@ function areTheyEqual() {
     }
     // increase move count
     moves += 1;
-    starSetter();
     updateUI();
 
     // reset the round back to zero
@@ -241,36 +237,6 @@ function notEqual() {
     setTimeout(resetElementPointer, 300);
 }
 
-// function to set stars
-function starSetter() {
-    // moves less than or equal 9 -> 3 stars
-    // moves between 10 and 15 -> 2.5 stars
-    if (moves >= 10 && moves <= 15) {
-        starsList[2].className = halfStar;
-        stars = 2.5;
-    }
-    // moves between 16 and 20 -> 2 stars
-    else if (moves >= 16 && moves <= 20) {
-        starsList[2].className = emptyStar;
-        stars = 2;
-    }
-    // moves between 21 and 24 -> 1.5 stars
-    else if (moves >= 21 && moves <= 24) {
-        starsList[1].className = halfStar;
-        stars = 1.5;
-    }
-    // moves between 25 and 28 -> 1 star
-    else if (moves >= 25 && moves <= 28) {
-        starsList[1].className = emptyStar;
-        stars = 1;
-    }
-    // moves between 29 and more -> 0.5 stars
-    else if (moves >= 29) {
-        starsList[0].className = halfStar;
-        stars = 0.5;
-    }
-}
-
 // function display win message
 function winMessage() {
     // updating the UI for the end screen to display the correct values
@@ -281,26 +247,21 @@ function winMessage() {
     // add the class that will view the wining screen
     winContainer.classList.add('win-screen');
 
-    // remove event listener
     deck.removeEventListener('click', cardClickHandler);
 }
 
-// function hide win message
 function hideWin() {
     winContainer.classList.remove('win-screen');
 }
 
-// function to flip the card up
 function flipUp(element) {
     element.classList.add('flipped');
 }
 
-// function to flip the card down
 function flipDown(element) {
     element.classList.remove('flipped');
 }
 
-// function to add correct animation
 function correct(el) {
     el.classList.add('correct');
 }
@@ -309,7 +270,6 @@ function removeCorrect(el) {
     el.classList.remove('correct');
 }
 
-// function to add wrong animation
 function wrong(el) {
     el.classList.add('wrong');
 }
@@ -318,18 +278,14 @@ function removeWrong(el) {
     el.classList.remove('wrong');
 }
 
-//  function to disable element from being clicked
 function disableClick(el) {
     el.classList.add('cant-click-this');
 }
 
-// function to re-enable elements to be clicked
 function enableClick(el) {
-    console.log('clicks enabled')
     el.classList.remove('cant-click-this');
 }
 
-// function update UI
 function updateUI() {
     movesContainer.textContent = moves;
 }
@@ -342,10 +298,9 @@ function resetUI() {
     timerContainer.textContent = "";
 }
 
-// function to reset the variables that holds a pointer to a DOM element
 function resetElementPointer() {
     cardOneElement = null;
     cardTwoElement = null;
-    // enable clicks on the deck of cards
+
     enableClick(deck)
 }
