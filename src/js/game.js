@@ -49,6 +49,7 @@ function game() {
 
     // Part 2: set the timer: timer function taken from sltackoverflow: https://stackoverflow.com/a/29972322
     startTime = Date.now();
+    resetButton.classList.remove('hidden');
     setInterval(function () {
         timerContainer.classList.remove('hidden');
         const delta = Date.now() - startTime; // milliseconds elapsed since start
@@ -253,7 +254,6 @@ function correct(el) {
 }
 
 function removeCorrect(el) {
-    console.log(el);
     el.classList.remove('correct');
 }
 
